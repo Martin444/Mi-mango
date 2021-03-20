@@ -28,7 +28,7 @@ class _ButtonSecundaryState extends State<ButtonSecundary> {
           widget.title,
           style: TextStyle(
             color: Color(0xFFFE6900),
-            fontSize: 15,
+            fontSize: 16,
           ),
         ),
       ),

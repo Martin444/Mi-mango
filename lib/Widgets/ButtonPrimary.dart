@@ -25,11 +25,13 @@ class _ButtonPrimaryState extends State<ButtonPrimary> {
           borderRadius: BorderRadius.circular(20),
           gradient: LinearGradient(
             stops: [
-              0.0,
-              0.0,
-              2.2,
+              -2.3,
+              0.6,
+              0.4,
+              5.2,
             ],
             colors: [
+              Color(0xFFFF1502), // arriba
               Color(0xFFFE6900), // arriba
               Color(0xFFFE6900), // arriba
               Color(0xFFFFB801) // abajo
@@ -40,7 +42,8 @@ class _ButtonPrimaryState extends State<ButtonPrimary> {
           widget.title,
           style: TextStyle(
             color: Colors.white,
-            fontSize: 15,
+            fontSize: 19,
+            fontWeight: FontWeight.bold,
           ),
         ),
       ),
