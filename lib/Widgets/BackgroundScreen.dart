@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 class BackGradient extends StatefulWidget {
-  String title = "Lavado";
-  double height = 100;
+  double height;
 
-  BackGradient({Key key, this.title, this.height}); //hei
+  BackGradient({Key key, this.height}); //hei
 
   @override
   _BackGradientState createState() => _BackGradientState();
@@ -15,6 +14,8 @@ class _BackGradientState extends State<BackGradient> {
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
     var screenWidth = MediaQuery.of(context).size.width;
+
+    print(screenHeight);
 
     widget.height ??= screenHeight;
 
@@ -27,17 +28,13 @@ class _BackGradientState extends State<BackGradient> {
         children: [
           Container(
             // width: 300,
-            child: FittedBox(
-              fit: BoxFit.none,
-              // alignment: Alignment(-1.3, 2.5),
-              child: Container(
-                width: 250,
-                height: 250,
-                decoration: BoxDecoration(
-                  color: Color(0xFFFE6900),
-                  borderRadius: BorderRadius.circular(screenHeight / 2),
-                ),
+            child: ClipPath(
+              child: new Container(
+                width: screenWidth,
+                height: 200.0,
+                color: Colors.red,
               ),
+              clipper: CustomClipPath(),
             ),
           ),
           Positioned(
@@ -47,6 +44,34 @@ class _BackGradientState extends State<BackGradient> {
               margin: EdgeInsets.only(top: 120, left: 100),
               width: screenHeight / 5,
               height: screenHeight / 5,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  stops: [
+                    -2.3,
+                    0.4,
+                    0.4,
+                    5.2,
+                  ],
+                  colors: [
+                    Color(0xFFFF1502).withOpacity(0.6), // arriba
+                    Color(0xFFFE6900).withOpacity(0.6), // arriba
+                    Color(0xFFFE6900).withOpacity(0.6), // arriba
+                    Color(0xFFFFB801).withOpacity(0.6) // abajo
+                  ],
+                ),
+                borderRadius: BorderRadius.circular(screenHeight / 2),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: screenHeight / 1.12,
+            right: screenWidth / 1.4,
+            child: Container(
+              margin: EdgeInsets.only(top: 120, left: 100),
+              width: screenHeight / 30,
+              height: screenHeight / 30,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
@@ -99,4 +124,23 @@ class _BackGradientState extends State<BackGradient> {
       ),
     );
   }
+}
+
+class CustomClipPath extends CustomClipper<Path> {
+  var radius = 10.0;
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    path.lineTo(200, size.height);
+    path.quadraticBezierTo(
+        size.width / 19, size.height - 40, size.width / 2, size.height - 90);
+    path.quadraticBezierTo(
+        3 / 4 * size.width, size.height, size.width, size.height - 30);
+    path.lineTo(size.width, 0);
+
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }
