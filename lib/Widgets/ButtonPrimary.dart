@@ -16,13 +16,13 @@ class _ButtonPrimaryState extends State<ButtonPrimary> {
         print('Hola');
       },
       child: Container(
-        height: 60,
+        height: 50,
         padding: EdgeInsets.symmetric(
           horizontal: 20,
         ),
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(10),
           gradient: LinearGradient(
             stops: [
               -2.3,
