@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:mimango/Widgets/BackgroundScreen.dart';
 import 'package:mimango/Widgets/BottonSecundary.dart';
 import 'package:mimango/Widgets/ButtonPrimary.dart';
+import 'package:mimango/Widgets/ButtonSocial.dart';
 import 'package:mimango/Widgets/TextInput.dart';
+import 'package:mimango/Widgets/conts.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -71,8 +73,52 @@ class _LoginPageState extends State<LoginPage> {
                     ButtonPrimary(
                       title: 'Iniciar sesión',
                     ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('¿Aun no tienes cuenta?'),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        GestureDetector(
+                          onTap: () {},
+                          child: Text(
+                            'Registrate',
+                            style: TextStyle(
+                              color: Color(0xFFFE6900),
+                              fontSize: 16,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                     ButtonSecundary(
                       title: 'No recuerdo mi contraseña',
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: ButtonSocial(
+                            title: 'assets/facebook.png',
+                            color: bluefacebook,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Expanded(
+                          child: ButtonSocial(
+                            title: 'assets/google.png',
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),

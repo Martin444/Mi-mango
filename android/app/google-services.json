@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "749850252104",
+    "project_id": "mimangoapp",
+    "storage_bucket": "mimangoapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:749850252104:android:6071337f59e767cde7997d",
+        "android_client_info": {
+          "package_name": "com.martinfarelux.mimango"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "749850252104-2rbh01h4qmtq1toklso6pje3nbl68hga.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3DPe-Cev2d8bgppb8nUMNzLWjQWuXYUs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "749850252104-2rbh01h4qmtq1toklso6pje3nbl68hga.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

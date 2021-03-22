@@ -13,14 +13,15 @@ class _TextInputState extends State<TextInput> {
         horizontal: 10,
       ),
       decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black12,
-              blurRadius: 15.0,
-            )
-          ]),
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 15.0,
+          )
+        ],
+      ),
       child: TextField(
         decoration: InputDecoration(
           labelText: 'Correo electronico',

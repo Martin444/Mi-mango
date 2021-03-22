@@ -18,8 +18,8 @@ class _ButtonSecundaryState extends State<ButtonSecundary> {
       child: Container(
         height: 50,
         padding: EdgeInsets.symmetric(
-          horizontal: 20,
-        ),
+            // horizontal: 20,
+            ),
         alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
