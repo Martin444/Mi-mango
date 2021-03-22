@@ -27,18 +27,35 @@ class _BackGradientState extends State<BackGradient> {
         alignment: Alignment(1.6, -1.7),
         children: [
           Container(
-            // width: 300,
+            margin: EdgeInsets.only(top: 0, left: 100),
             child: ClipPath(
               child: new Container(
-                width: screenWidth,
-                height: 200.0,
-                color: Colors.red,
+                width: screenWidth / 1.3,
+                // height: 200.0,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    stops: [
+                      -1.0,
+                      0.1,
+                      0.4,
+                      // 2.9,
+                    ],
+                    colors: [
+                      Color(0xFFFF1502).withOpacity(0.6), // arriba
+                      Color(0xFFFE6900).withOpacity(0.6), // arriba
+                      // Color(0xFFFE6900).withOpacity(0.6), // arriba
+                      Color(0xFFFFB801).withOpacity(0.6) // abajo
+                    ],
+                  ),
+                ),
               ),
               clipper: CustomClipPath(),
             ),
           ),
           Positioned(
-            bottom: screenHeight / 1.4,
+            top: -50,
             right: screenWidth / 1.22,
             child: Container(
               margin: EdgeInsets.only(top: 120, left: 100),
@@ -66,8 +83,8 @@ class _BackGradientState extends State<BackGradient> {
             ),
           ),
           Positioned(
-            bottom: screenHeight / 1.12,
-            right: screenWidth / 1.4,
+            bottom: 630,
+            right: 290,
             child: Container(
               margin: EdgeInsets.only(top: 120, left: 100),
               width: screenHeight / 30,
@@ -131,11 +148,11 @@ class CustomClipPath extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     Path path = Path();
-    path.lineTo(200, size.height);
-    path.quadraticBezierTo(
-        size.width / 19, size.height - 40, size.width / 2, size.height - 90);
-    path.quadraticBezierTo(
-        3 / 4 * size.width, size.height, size.width, size.height - 30);
+    // path.lineTo(0, 0);
+    // path.close();
+    path.quadraticBezierTo(1.9, 50, 100.9, 50);
+    path.quadraticBezierTo(160.4, 60, 180, 100);
+    path.quadraticBezierTo(210.4, 200, 300, 200);
     path.lineTo(size.width, 0);
 
     return path;
