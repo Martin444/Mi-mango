@@ -38,6 +38,7 @@ class _LoginPageState extends State<LoginPage> {
                           Text(
                             'mi mango',
                             style: TextStyle(
+                              fontFamily: 'Sniglet',
                               fontSize: 25,
                               color: Colors.black,
                             ),
