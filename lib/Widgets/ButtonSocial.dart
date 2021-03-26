@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class ButtonSocial extends StatefulWidget {
   String title;
   Color color;
+  VoidCallback onTap;
 
-  ButtonSocial({@required this.title, this.color});
+  ButtonSocial({@required this.title, this.color, this.onTap});
   @override
   _ButtonSocialState createState() => _ButtonSocialState();
 }
@@ -15,11 +16,9 @@ class _ButtonSocialState extends State<ButtonSocial> {
     widget.color ??= Colors.white;
 
     return GestureDetector(
-      onTap: () {
-        print('Hola');
-      },
+      onTap: widget.onTap,
       child: Container(
-        height: 60,
+        height: 50,
         padding: EdgeInsets.symmetric(
           horizontal: 20,
         ),

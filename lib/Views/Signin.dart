@@ -1,23 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:mimango/Views/Signin.dart';
 import 'package:mimango/Widgets/BackgroundScreen.dart';
 import 'package:mimango/Widgets/BottonSecundary.dart';
 import 'package:mimango/Widgets/ButtonPrimary.dart';
 import 'package:mimango/Widgets/ButtonSocial.dart';
 import 'package:mimango/Widgets/TextInput.dart';
 import 'package:mimango/Widgets/conts.dart';
-import 'package:mimango/controllers/UserController.dart';
 
-class LoginPage extends StatefulWidget {
+class SigninPage extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _SigninPageState createState() => _SigninPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SigninPageState extends State<SigninPage> {
   @override
   Widget build(BuildContext context) {
-    var login = Get.find<UserController>();
     TextEditingController email = TextEditingController();
     TextEditingController password = TextEditingController();
     //Imagen
@@ -57,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     Container(
                       child: Text(
-                        'Creando un futuro juntos',
+                        'Crea tu cuenta',
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w300,
@@ -73,10 +69,18 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     TextInput(),
                     SizedBox(
+                      height: 10,
+                    ),
+                    TextInput(),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    TextInput(),
+                    SizedBox(
                       height: 20,
                     ),
                     ButtonPrimary(
-                      title: 'Iniciar sesión',
+                      title: 'Registrate',
                     ),
                     SizedBox(
                       height: 10,
@@ -85,55 +89,20 @@ class _LoginPageState extends State<LoginPage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('¿Aun no tienes cuenta?'),
+                        Text('¿Ya tienes una cuena?'),
                         SizedBox(
                           width: 10,
                         ),
                         GestureDetector(
-                          onTap: () {
-                            Get.to(SigninPage());
-                          },
+                          onTap: () {},
                           child: Text(
-                            'Registrate',
+                            'Inicia sesion',
                             style: TextStyle(
                               color: Color(0xFFFE6900),
                               fontSize: 16,
                             ),
                           ),
                         )
-                      ],
-                    ),
-                    ButtonSecundary(
-                      title: 'No recuerdo mi contraseña',
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: ButtonSocial(
-                            title: 'assets/facebook.png',
-                            color: bluefacebook,
-                            onTap: () {
-                              print('Hola soy un boton');
-                            },
-                          ),
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Expanded(
-                          child: ButtonSocial(
-                            title: 'assets/google.png',
-                            onTap: () {
-                              login.loginWhitGoogle().then((value) => {
-                                    print(value.user),
-                                    login.showSnackbar('Se registro con exito')
-                                  });
-                            },
-                          ),
-                        ),
                       ],
                     ),
                   ],
