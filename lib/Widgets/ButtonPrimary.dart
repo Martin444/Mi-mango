@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class ButtonPrimary extends StatefulWidget {
-  String title;
+  String? title;
+  VoidCallback? onFunction;
 
-  ButtonPrimary({@required this.title});
+  ButtonPrimary({
+    @required this.title,
+    @required this.onFunction,
+  });
   @override
   _ButtonPrimaryState createState() => _ButtonPrimaryState();
 }
@@ -12,9 +17,7 @@ class _ButtonPrimaryState extends State<ButtonPrimary> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        print('Hola');
-      },
+      onTap: widget.onFunction,
       child: Container(
         height: 50,
         padding: EdgeInsets.symmetric(
@@ -39,7 +42,7 @@ class _ButtonPrimaryState extends State<ButtonPrimary> {
           ),
         ),
         child: Text(
-          widget.title,
+          widget.title!,
           style: TextStyle(
             color: Colors.white,
             fontSize: 19,

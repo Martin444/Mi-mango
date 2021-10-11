@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mimango/Widgets/BackgroundScreen.dart';
-import 'package:mimango/Widgets/BottonSecundary.dart';
 import 'package:mimango/Widgets/ButtonPrimary.dart';
-import 'package:mimango/Widgets/ButtonSocial.dart';
 import 'package:mimango/Widgets/TextInput.dart';
-import 'package:mimango/Widgets/conts.dart';
 
 class SigninPage extends StatefulWidget {
   @override
@@ -14,8 +11,6 @@ class SigninPage extends StatefulWidget {
 class _SigninPageState extends State<SigninPage> {
   @override
   Widget build(BuildContext context) {
-    TextEditingController email = TextEditingController();
-    TextEditingController password = TextEditingController();
     //Imagen
     //titulo
     //inputs
@@ -81,6 +76,7 @@ class _SigninPageState extends State<SigninPage> {
                     ),
                     ButtonPrimary(
                       title: 'Registrate',
+                      onFunction: () {},
                     ),
                     SizedBox(
                       height: 10,

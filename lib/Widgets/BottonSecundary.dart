@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ButtonSecundary extends StatefulWidget {
-  String title;
+  String? title;
 
   ButtonSecundary({@required this.title});
   @override
@@ -25,7 +25,7 @@ class _ButtonSecundaryState extends State<ButtonSecundary> {
           borderRadius: BorderRadius.circular(20),
         ),
         child: Text(
-          widget.title,
+          widget.title!,
           style: TextStyle(
             color: Color(0xFFFE6900),
             fontSize: 16,

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class ButtonSocial extends StatefulWidget {
-  String title;
-  Color color;
-  VoidCallback onTap;
+  String? title;
+  Color? color;
+  VoidCallback? onTap;
 
   ButtonSocial({@required this.title, this.color, this.onTap});
   @override
@@ -33,7 +34,7 @@ class _ButtonSocialState extends State<ButtonSocial> {
             )
           ],
         ),
-        child: Image.asset(widget.title),
+        child: Image.asset(widget.title!),
       ),
     );
   }
