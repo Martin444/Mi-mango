@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:mimango/Widgets/conts.dart';
 
 // ignore: must_be_immutable
 class CardBlured extends StatelessWidget {
@@ -22,7 +23,7 @@ class CardBlured extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.all(20),
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.3),
+            color: Colors.white.withOpacity(0.2),
           ),
           child: child,
         ),

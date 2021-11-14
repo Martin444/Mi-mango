@@ -18,7 +18,7 @@ class _LoginPageState extends State<LoginPage> {
     var login = Get.find<UserController>();
 
     return Scaffold(
-      body: SafeArea(
+      body: Container(
         child: Stack(
           children: [
             BackGradient(),

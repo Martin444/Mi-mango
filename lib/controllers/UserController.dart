@@ -2,8 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:mimango/Models/user.dart';
 
 class UserController extends GetxController {
+  Usere? _user;
+
+  Usere? get user => _user;
+
   void showSnackbar(String title) {
     Get.showSnackbar(GetBar(
       message: title,
@@ -50,5 +55,19 @@ class UserController extends GetxController {
       },
       SetOptions(merge: true),
     );
+  }
+
+  void setDataUserLocal(User user) {
+    _user = Usere(
+      uid: user.uid,
+      name: user.displayName,
+      email: user.email,
+      photoURL: user.photoURL,
+    );
+  }
+
+  signOut() async {
+    await _auth.signOut().then((onValue) => print("Sesion cerrada"));
+    await GoogleSignIn().signOut();
   }
 }

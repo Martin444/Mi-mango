@@ -47,6 +47,7 @@ class _ButtonPrimaryState extends State<ButtonPrimary> {
             color: Colors.white,
             fontSize: 19,
             fontWeight: FontWeight.bold,
+            fontFamily: 'Sniglet',
           ),
         ),
       ),
