@@ -58,19 +58,19 @@ class _SigninPageState extends State<SigninPage> {
                     SizedBox(
                       height: 20,
                     ),
-                    TextInput(),
+                    // TextInput(),
                     SizedBox(
                       height: 10,
                     ),
-                    TextInput(),
+                    // TextInput(),
                     SizedBox(
                       height: 10,
                     ),
-                    TextInput(),
+                    // TextInput(),
                     SizedBox(
                       height: 10,
                     ),
-                    TextInput(),
+                    // TextInput(),
                     SizedBox(
                       height: 20,
                     ),

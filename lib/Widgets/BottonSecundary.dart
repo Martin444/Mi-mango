@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 
 class ButtonSecundary extends StatefulWidget {
   String? title;
+  VoidCallback? onFunction;
 
-  ButtonSecundary({@required this.title});
+  ButtonSecundary({
+    @required this.title,
+    @required this.onFunction,
+  });
   @override
   _ButtonSecundaryState createState() => _ButtonSecundaryState();
 }
@@ -12,9 +16,7 @@ class _ButtonSecundaryState extends State<ButtonSecundary> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        print('Hola');
-      },
+      onTap: widget.onFunction,
       child: Container(
         height: 50,
         padding: EdgeInsets.symmetric(
@@ -28,7 +30,8 @@ class _ButtonSecundaryState extends State<ButtonSecundary> {
           widget.title!,
           style: TextStyle(
             color: Color(0xFFFE6900),
-            fontSize: 16,
+            fontSize: 17,
+            fontWeight: FontWeight.bold,
           ),
         ),
       ),

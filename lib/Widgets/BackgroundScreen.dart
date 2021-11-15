@@ -100,8 +100,8 @@ class _BackGradientState extends State<BackGradient> {
             right: screenWidth / 1.22,
             child: BackdropFilter(
               filter: ImageFilter.blur(
-                sigmaX: 2.8,
-                sigmaY: 2.8,
+                sigmaX: 0.8,
+                sigmaY: 0.8,
               ),
               child: Container(
                 margin: EdgeInsets.only(top: 120, left: 100),
@@ -135,8 +135,8 @@ class _BackGradientState extends State<BackGradient> {
             right: 290,
             child: BackdropFilter(
               filter: ImageFilter.blur(
-                sigmaX: 1.8,
-                sigmaY: 1.8,
+                sigmaX: 0.8,
+                sigmaY: 0.8,
               ),
               child: Container(
                 child: Container(

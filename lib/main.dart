@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:mimango/Views/PageDecide.dart';
 import 'package:mimango/controllers/UserController.dart';
 
+import 'controllers/CurriculumController.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -21,6 +23,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put<UserController>(UserController());
+    Get.put<CurriculumController>(CurriculumController());
     return GetMaterialApp(
       title: 'Mi Mango',
       debugShowCheckedModeBanner: false,
