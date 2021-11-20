@@ -27,6 +27,7 @@ class _DataExtraPageState extends State<DataExtraPage> {
         return Container(
           child: CardBlured(
             child: SingleChildScrollView(
+              physics: BouncingScrollPhysics(),
               child: Column(
                 children: [
                   Container(
@@ -132,6 +133,8 @@ class _DataExtraPageState extends State<DataExtraPage> {
                           labelText: 'Breve descripción de ti',
                           maxLines: 4,
                           controller: _.descriptionController,
+                          onChanged: () {},
+                          textInputAction: TextInputAction.done,
                         ),
                         SizedBox(
                           height: 25,

@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:get/get_utils/src/extensions/dynamic_extensions.dart';
 
 class JobService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;

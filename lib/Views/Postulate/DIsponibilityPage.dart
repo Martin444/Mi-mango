@@ -33,7 +33,7 @@ class _DisponibilityPageState extends State<DisponibilityPage> {
                 ),
                 Container(
                   child: Text(
-                    'Hay algunos datos que le interesarian a tu empleador/a',
+                    'Estos datos se usan para brindarte oportunidades más personalizadas.',
                     textAlign: TextAlign.center,
                     style: secondaryText,
                   ),

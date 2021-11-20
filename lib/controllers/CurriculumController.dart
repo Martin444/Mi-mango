@@ -3,9 +3,12 @@ import 'dart:convert';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:mimango/Models/TypeJobsModel.dart';
+import 'package:mimango/Services/CurriculumService.dart';
 import 'package:mimango/Services/JobServices.dart';
+import 'package:mimango/controllers/UserController.dart';
 
 class CurriculumController extends GetxController {
+  var userInfo = Get.find<UserController>();
   bool _myfirstEmployee = true;
   bool get myfirstEmployee => this._myfirstEmployee;
   bool _movility = false;
@@ -90,7 +93,7 @@ class CurriculumController extends GetxController {
         this._directionController.text.length != 0 &&
         this._dniNumberController.text.length != 0 &&
         this._ageController.text.length != 0 &&
-        this._phoneNumberController.text.length >= 6) {
+        this._phoneNumberController.text.length >= 9) {
       setAvilableNext(true);
       this._avilableSend = true;
       update();
@@ -114,5 +117,31 @@ class CurriculumController extends GetxController {
   disposeForm() {
     this._avilableSend = false;
     update();
+  }
+
+  Future postNewCurriculum() async {
+    try {
+      var data = {
+        'name': this._nameController.text,
+        'userOwner': userInfo.user!.uid,
+        'direction': this._directionController.text,
+        'dniNumber': this._dniNumberController.text,
+        'phoneNumber': this._phoneNumberController.text,
+        'description': this._descriptionController.text,
+        'age': this._ageController.text,
+        'haveChildren': this._haveChildren,
+        'haveWpp': this._haveWpp,
+        'completeWorkday': this._completeTime,
+        'movility': this._movility,
+        'myfirstEmployee': this._myfirstEmployee,
+        'typeJob': this._typeJobSelected!.id,
+      };
+
+      var response = await CurriculumServices().postNewCurriculumn(data);
+
+      return response;
+    } catch (e) {
+      print(e);
+    }
   }
 }

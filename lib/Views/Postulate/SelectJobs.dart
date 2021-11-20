@@ -56,6 +56,7 @@ class _SelectJobsPageState extends State<SelectJobsPage> {
                 Container(
                   height: 300,
                   child: SingleChildScrollView(
+                    physics: BouncingScrollPhysics(),
                     child: Column(
                       children: tiles,
                     ),

@@ -4,6 +4,7 @@ class TextInput extends StatefulWidget {
   String? labelText;
   FocusNode? focus;
   TextInputType? keyboardType;
+  TextInputAction? textInputAction;
   int? maxLines;
   TextEditingController? controller;
   VoidCallback? onChanged;
@@ -14,6 +15,7 @@ class TextInput extends StatefulWidget {
     this.maxLines,
     this.focus,
     this.onChanged,
+    this.textInputAction,
     this.keyboardType,
   }) : super(key: key);
   @override
@@ -34,11 +36,12 @@ class _TextInputState extends State<TextInput> {
       child: TextField(
         maxLines: widget.maxLines,
         controller: widget.controller,
+        textCapitalization: TextCapitalization.sentences,
         focusNode: widget.focus,
         onChanged: (value) {
           widget.onChanged!();
         },
-        textInputAction: TextInputAction.next,
+        textInputAction: widget.textInputAction ?? TextInputAction.next,
         keyboardType: widget.keyboardType,
         decoration: InputDecoration(
           hintText: widget.labelText,
