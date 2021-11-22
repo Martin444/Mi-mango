@@ -2,8 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import 'anim/delayed_reveal.dart';
-
 // ignore: must_be_immutable
 class BackGradient extends StatefulWidget {
   double? height;

@@ -14,12 +14,6 @@ class DataExtraPage extends StatefulWidget {
 }
 
 class _DataExtraPageState extends State<DataExtraPage> {
-  FocusNode _focusNode1 = FocusNode();
-  FocusNode _focusNode2 = FocusNode();
-  FocusNode _focusNode3 = FocusNode();
-  FocusNode _focusNode4 = FocusNode();
-  FocusNode _focusNode5 = FocusNode();
-
   @override
   Widget build(BuildContext context) {
     return GetBuilder<CurriculumController>(

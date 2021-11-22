@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:mimango/Widgets/CardBlured.dart';
 import 'package:mimango/Widgets/anim/delayed_reveal.dart';
 import 'package:mimango/Widgets/conts.dart';

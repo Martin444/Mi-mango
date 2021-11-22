@@ -19,7 +19,7 @@ _getDelay() {
 }
 
 class DominoReveal extends StatelessWidget {
-  final Widget child;
+  final Widget? child;
 
   const DominoReveal({
     Key? key,
@@ -31,7 +31,7 @@ class DominoReveal extends StatelessWidget {
   Widget build(BuildContext context) {
     return DelayedReveal(
       delay: _getDelay(),
-      child: child,
+      child: child!,
     );
   }
 }

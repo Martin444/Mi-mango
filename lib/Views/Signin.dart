@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mimango/Widgets/BackgroundScreen.dart';
 import 'package:mimango/Widgets/ButtonPrimary.dart';
-import 'package:mimango/Widgets/TextInput.dart';
 
 class SigninPage extends StatefulWidget {
   @override

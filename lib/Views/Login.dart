@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mimango/Widgets/BackgroundScreen.dart';
 import 'package:mimango/Widgets/ButtonPrimary.dart';
-import 'package:mimango/Widgets/ButtonSocial.dart';
 import 'package:mimango/Widgets/conts.dart';
 import 'package:mimango/controllers/UserController.dart';
 

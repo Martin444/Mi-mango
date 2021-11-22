@@ -1,9 +1,7 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:mimango/Widgets/BackgroundScreen.dart';
-import 'package:mimango/Widgets/CardBlured.dart';
 import 'package:mimango/Widgets/ProfesionalList.dart';
 import 'package:mimango/Widgets/SeedList.dart';
 import 'package:mimango/Widgets/anim/delayed_reveal.dart';

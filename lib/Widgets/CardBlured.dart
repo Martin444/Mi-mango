@@ -1,6 +1,5 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:mimango/Widgets/conts.dart';
 
 // ignore: must_be_immutable
 class CardBlured extends StatelessWidget {

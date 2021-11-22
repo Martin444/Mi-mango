@@ -12,7 +12,6 @@ import 'package:mimango/Widgets/anim/delayed_reveal.dart';
 import 'package:mimango/Widgets/conts.dart';
 import 'package:mimango/controllers/CurriculumController.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:animate_do/animate_do.dart';
 import 'DataExtra.dart';
 import 'SelectJobs.dart';
 import 'DIsponibilityPage.dart';
@@ -36,14 +35,12 @@ class _AboutMimangoState extends State<AboutMimango> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     cv.getJobsTypes();
   }
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     cv.setAvilableNext(true);
     cv.disposeForm();

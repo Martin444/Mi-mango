@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:mimango/Widgets/CardBlured.dart';
 import 'package:mimango/Widgets/conts.dart';
 import 'package:mimango/controllers/CurriculumController.dart';
 
