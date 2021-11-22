@@ -4,6 +4,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:mimango/Widgets/BackgroundScreen.dart';
 import 'package:mimango/Widgets/CardBlured.dart';
+import 'package:mimango/Widgets/ProfesionalList.dart';
+import 'package:mimango/Widgets/SeedList.dart';
 import 'package:mimango/Widgets/anim/delayed_reveal.dart';
 import 'package:mimango/Widgets/conts.dart';
 import 'package:mimango/controllers/UserController.dart';
@@ -82,42 +84,56 @@ class _HomePageState extends State<HomePage> {
       body: Stack(
         children: [
           BackGradient(),
-          Column(
-            children: [
-              HeaderUser(userCon: userCon),
-              SizedBox(
-                height: 10,
+          SingleChildScrollView(
+            physics: BouncingScrollPhysics(),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 60,
+                ),
+                HeaderUser(userCon: userCon),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: StandByUser(),
+                ),
+                SeedList(),
+                SizedBox(
+                  height: 20,
+                ),
+                PofesionalList(),
+              ],
+            ),
+          ),
+          SafeArea(
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Builder(
+                builder: (context) {
+                  return DelayedReveal(
+                    delay: Duration(milliseconds: 400),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: IconButton(
+                        icon: SvgPicture.asset(
+                          "assets/menu.svg",
+                          height: 20,
+                          width: 34,
+                          color: Colors.black,
+                        ),
+                        onPressed: () => Scaffold.of(context).openDrawer(),
+                      ),
+                    ),
+                  );
+                },
               ),
-              // DelayedReveal(
-              //   delay: Duration(milliseconds: 1400),
-              //   child: Container(
-              //     child: Row(
-              //       crossAxisAlignment: CrossAxisAlignment.center,
-              //       mainAxisAlignment: MainAxisAlignment.end,
-              //       children: [
-              //         Text(
-              //           'Filtrar',
-              //           style: subTitleText,
-              //         ),
-              //         IconButton(
-              //           onPressed: () {},
-              //           icon: Image.asset('assets/filter.png'),
-              //         )
-              //       ],
-              //     ),
-              //   ),
-              // ),
-              Spacer(
-                flex: 1,
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: StandByUser(),
-              ),
-              Spacer(
-                flex: 10,
-              ),
-            ],
+            ),
           ),
         ],
       ),

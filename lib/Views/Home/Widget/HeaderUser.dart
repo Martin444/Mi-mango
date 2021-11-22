@@ -21,51 +21,36 @@ class HeaderUser extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Builder(
-              builder: (context) {
-                return DelayedReveal(
-                  delay: Duration(milliseconds: 400),
-                  child: IconButton(
-                    icon: SvgPicture.asset(
-                      "assets/menu.svg",
-                      height: 20,
-                      width: 34,
-                    ),
-                    onPressed: () => Scaffold.of(context).openDrawer(),
-                  ),
-                );
-              },
-            ),
-            SizedBox(
-              height: 20,
-            ),
             DelayedReveal(
               delay: Duration(milliseconds: 1000),
               child: CardBlured(
-                child: Row(
-                  children: [
-                    CircleAvatar(
-                      radius: 30,
-                      backgroundImage:
-                          NetworkImage('${userCon.user!.photoURL}'),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Hola, ${userCon.user!.name!.split(' ')[0]}!',
-                          style: primatyText,
-                        ),
-                        Text(
-                          '¿A quién precisas hoy?',
-                          style: secondaryText,
-                        ),
-                      ],
-                    ),
-                  ],
+                child: Container(
+                  padding: EdgeInsets.all(10),
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        radius: 30,
+                        backgroundImage:
+                            NetworkImage('${userCon.user!.photoURL}'),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Hola, ${userCon.user!.name!.split(' ')[0]}!',
+                            style: primatyText,
+                          ),
+                          Text(
+                            '¿A quién precisas hoy?',
+                            style: secondaryText,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

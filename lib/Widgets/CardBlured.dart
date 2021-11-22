@@ -21,7 +21,7 @@ class CardBlured extends StatelessWidget {
           sigmaY: 5,
         ),
         child: Container(
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
             color: Colors.white.withOpacity(0.2),
           ),

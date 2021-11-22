@@ -9,6 +9,8 @@ import 'package:mimango/controllers/UserController.dart';
 
 class CurriculumController extends GetxController {
   var userInfo = Get.find<UserController>();
+  bool _sendSucces = false;
+  bool get sendSucces => this._sendSucces;
   bool _myfirstEmployee = true;
   bool get myfirstEmployee => this._myfirstEmployee;
   bool _movility = false;
@@ -120,6 +122,7 @@ class CurriculumController extends GetxController {
   }
 
   Future postNewCurriculum() async {
+    _avilableNext = false;
     try {
       var data = {
         'name': this._nameController.text,
@@ -135,13 +138,16 @@ class CurriculumController extends GetxController {
         'movility': this._movility,
         'myfirstEmployee': this._myfirstEmployee,
         'typeJob': this._typeJobSelected!.id,
+        'typeJobName': this._typeJobSelected!.title,
       };
 
       var response = await CurriculumServices().postNewCurriculumn(data);
 
+      _sendSucces = true;
       return response;
     } catch (e) {
       print(e);
+      throw Exception(e);
     }
   }
 }
