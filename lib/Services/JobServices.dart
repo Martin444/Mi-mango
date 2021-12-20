@@ -5,7 +5,13 @@ class JobService {
   Future<List<QueryDocumentSnapshot<Map<String, dynamic>>>>
       getListAvilableJobs() async {
     try {
-      var response = await _db.collection('jobstype').get();
+      var response = await _db
+          .collection('jobstype')
+          .orderBy(
+            'title',
+            descending: false,
+          )
+          .get();
       return response.docs;
     } catch (e) {
       print(e);

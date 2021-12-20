@@ -1,63 +1,93 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mimango/Views/Profile/CurriculumPage.dart';
-import 'package:mimango/Widgets/CardBlured.dart';
+import 'package:mimango/Models/CurriculumModel.dart';
+import 'package:mimango/controllers/CurriculumController.dart';
 
-import 'conts.dart';
-
+// ignore: must_be_immutable
 class ProfesionalTile extends StatelessWidget {
-  const ProfesionalTile({
+  CurriculumModel? model;
+
+  ProfesionalTile({
     Key? key,
+    this.model,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Get.to(
-          () => CurriculumPage(),
-          transition: Transition.fadeIn,
-        );
-      },
-      child: Container(
-        width: 180,
-        child: Stack(
-          alignment: Alignment(-0.0, 2.5),
-          children: [
-            Container(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Hero(
-                  tag: 'profesional',
-                  child: Image.network(
-                    'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-                    height: 180,
-                    width: 150,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
+    return GetBuilder<CurriculumController>(
+      builder: (_) {
+        return GestureDetector(
+          onTap: () {
+            _.selectCurriculum(model!);
+          },
+          child: Container(
+            margin: EdgeInsets.only(right: 20),
+            padding: EdgeInsets.all(20),
+            width: 180,
+            decoration: BoxDecoration(
+              color: Colors.grey[200],
+              borderRadius: BorderRadius.circular(10),
             ),
-            CardBlured(
-              child: Container(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+            child: Column(
+              // alignment: Alignment(-0.0, 4.0),
+              children: [
+                Column(
                   children: [
-                    Text(
-                      'Martín Farel',
-                      style: primatyText,
+                    Container(
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(100),
+                        child: Hero(
+                          tag: '${model!.id}',
+                          child: Image.network(
+                            model!.photo!,
+                            height: 120,
+                            // width: Get.width,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
                     ),
-                    Text(
-                      'Obstetra',
-                      style: subTitleText,
+                    SizedBox(
+                      height: 10,
                     ),
                   ],
                 ),
-              ),
+                Container(
+                  child: Container(
+                    width: Get.width,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          model!.firstname!,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: 'Sniglet',
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
+                        // Divider(),
+                        Text(
+                          model!.typeJob!,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: 'Sniglet',
+                            fontSize: 17,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }

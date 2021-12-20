@@ -14,6 +14,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "749850252104-6q94jlkepe6p6nu523a2h5vc6q5pceg8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.martinfarelux.mimango",
+            "certificate_hash": "a3a4fc05525d0f3e8b7b024ad7f8c53fb5e3086b"
+          }
+        },
+        {
+          "client_id": "749850252104-eqtl2a18tgp1dcg3sjbs3ggtvf3tp9kr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.martinfarelux.mimango",
+            "certificate_hash": "6bef6f827c874cb4b1e29ec52fd9e53fcd1eaa10"
+          }
+        },
+        {
           "client_id": "749850252104-pcb62grokj919p4k6o49srfnmgcluf39.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

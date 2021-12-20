@@ -98,11 +98,11 @@ class _HomePageState extends State<HomePage> {
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: StandByUser(),
                 ),
-                SeedList(),
+                PofesionalList(),
                 SizedBox(
                   height: 20,
                 ),
-                PofesionalList(),
+                SeedList(),
               ],
             ),
           ),

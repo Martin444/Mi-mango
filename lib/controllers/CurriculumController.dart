@@ -1,8 +1,10 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:mimango/Models/CurriculumModel.dart';
 import 'package:mimango/Models/TypeJobsModel.dart';
 import 'package:mimango/Services/CurriculumService.dart';
 import 'package:mimango/Services/JobServices.dart';
+import 'package:mimango/Views/Profile/CurriculumPage.dart';
 import 'package:mimango/controllers/UserController.dart';
 
 class CurriculumController extends GetxController {
@@ -17,6 +19,10 @@ class CurriculumController extends GetxController {
   bool get completeTime => this._completeTime;
   bool _haveChildren = false;
   bool get haveChildren => this._haveChildren;
+  bool _haveSchoolComplete = false;
+  bool get haveSchoolComplete => this._haveSchoolComplete;
+  bool _haveSuperEducation = false;
+  bool get haveSuperEducation => this._haveSuperEducation;
   bool _haveWpp = true;
   bool get haveWpp => this._haveWpp;
 
@@ -88,6 +94,16 @@ class CurriculumController extends GetxController {
     update();
   }
 
+  setHaveSchoolComplete(bool value) {
+    this._haveSchoolComplete = value;
+    update();
+  }
+
+  setHaveSuperEducation(bool value) {
+    this._haveSuperEducation = value;
+    update();
+  }
+
   setAvilableSend() {
     if (this._nameController.text.length != 0 &&
         this._directionController.text.length != 0 &&
@@ -116,6 +132,8 @@ class CurriculumController extends GetxController {
 
   disposeForm() {
     this._avilableSend = false;
+    setAvilableNext(true);
+
     update();
   }
 
@@ -125,6 +143,8 @@ class CurriculumController extends GetxController {
       var data = {
         'name': this._nameController.text,
         'userOwner': userInfo.user!.uid,
+        'userPhoto': userInfo.user!.photoURL,
+        'userEmail': userInfo.user!.email,
         'direction': this._directionController.text,
         'dniNumber': this._dniNumberController.text,
         'phoneNumber': this._phoneNumberController.text,
@@ -133,6 +153,8 @@ class CurriculumController extends GetxController {
         'haveChildren': this._haveChildren,
         'haveWpp': this._haveWpp,
         'completeWorkday': this._completeTime,
+        'completeSecundary': this._haveSchoolComplete,
+        'superiorEducation': this._haveSuperEducation,
         'movility': this._movility,
         'myfirstEmployee': this._myfirstEmployee,
         'typeJob': this._typeJobSelected!.id,
@@ -147,5 +169,56 @@ class CurriculumController extends GetxController {
       print(e);
       throw Exception(e);
     }
+  }
+
+// Controlladores para traer los curriculums
+
+  var _curriculums = <CurriculumModel>[];
+  List<CurriculumModel> get curriculums => this._curriculums;
+
+  CurriculumModel? _curriculumSelected;
+  CurriculumModel? get curriculumSelected => this._curriculumSelected;
+
+  Future getCurriculums() async {
+    _curriculums = [];
+    try {
+      var response = await CurriculumServices().getAllCurriculum();
+      response.docs.forEach((element) {
+        _curriculums.add(CurriculumModel(
+          id: element.id,
+          firstname: element.data()['name'],
+          dniNumber: element.data()['dniNumber'],
+          email: element.data()['userEmail'],
+          description: element.data()['description'],
+          address: element.data()['direction'],
+          phone: element.data()['phoneNumber'],
+          age: element.data()['age'],
+          haveChilldren: element.data()['haveChildren'],
+          haveSchoolComplete: element.data()['completeSecundary'],
+          haveSuperEducation: element.data()['superiorEducation'],
+          haveWpp: element.data()['haveWpp'],
+          completeWorkday: element.data()['completeWorkday'],
+          movility: element.data()['movility'],
+          myfirstEmployee: element.data()['myfirstEmployee'],
+          typeJob: element.data()['typeJobName'],
+          userOwner: element.data()['userOwner'],
+          photo: element.data()['userPhoto'],
+        ));
+      });
+      update();
+      return response;
+    } catch (e) {
+      print(e);
+      throw Exception(e);
+    }
+  }
+
+  selectCurriculum(CurriculumModel curriculum) {
+    this._curriculumSelected = curriculum;
+    update();
+    Get.to(
+      () => CurriculumPage(),
+      transition: Transition.fadeIn,
+    );
   }
 }

@@ -41,9 +41,8 @@ class _AboutMimangoState extends State<AboutMimango> {
 
   @override
   void dispose() {
-    super.dispose();
-    cv.setAvilableNext(true);
     cv.disposeForm();
+    super.dispose();
   }
 
   @override

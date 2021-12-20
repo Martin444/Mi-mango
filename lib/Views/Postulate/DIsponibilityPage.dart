@@ -23,7 +23,7 @@ class _DisponibilityPageState extends State<DisponibilityPage> {
               children: [
                 Container(
                   child: Text(
-                    'Disponibilidad',
+                    'Datos extra y disponibilidad',
                     textAlign: TextAlign.center,
                     style: subTitleText,
                   ),
@@ -42,94 +42,142 @@ class _DisponibilityPageState extends State<DisponibilityPage> {
                   height: 20,
                 ),
                 Container(
-                  height: 300,
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Tengo uno o más hijos/as',
-                            style: secondaryText,
-                          ),
-                          CustomSwitch(
-                            value: _.haveChildren,
-                            onChanged: (value) {
-                              _.setHaveChildren(value);
-                            },
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Tengo vehiculo',
-                            style: secondaryText,
-                          ),
-                          CustomSwitch(
-                            value: _.movility,
-                            onChanged: (value) {
-                              _.setHaveMovility(value);
-                            },
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 25,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Busco trabajos...',
-                            style: subTitleText,
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                'De medio tiempo',
-                                style: secondaryText,
-                              ),
-                              CustomSwitch(
-                                value: !_.completeTime,
-                                onChanged: (value) {
-                                  _.setTimeDisponibility(false);
-                                },
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                'De tiempo completo',
-                                style: secondaryText,
-                              ),
-                              CustomSwitch(
-                                value: _.completeTime,
-                                onChanged: (value) {
-                                  _.setTimeDisponibility(true);
-                                },
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
+                  height: 350,
+                  child: SingleChildScrollView(
+                    physics: BouncingScrollPhysics(),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Secundario completo',
+                              style: secondaryText,
+                            ),
+                            CustomSwitch(
+                              value: _.haveSchoolComplete,
+                              onChanged: (value) {
+                                _.setHaveSchoolComplete(value);
+                              },
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        _.haveSchoolComplete
+                            ? Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Expanded(
+                                        child: Text(
+                                          'Educación terciaria y/o Universidad',
+                                          style: secondaryText,
+                                        ),
+                                      ),
+                                      CustomSwitch(
+                                        value: _.haveSuperEducation,
+                                        onChanged: (value) {
+                                          _.setHaveSuperEducation(value);
+                                        },
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                ],
+                              )
+                            : Container(),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Tengo uno o más hijos/as',
+                              style: secondaryText,
+                            ),
+                            CustomSwitch(
+                              value: _.haveChildren,
+                              onChanged: (value) {
+                                _.setHaveChildren(value);
+                              },
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Tengo vehiculo',
+                              style: secondaryText,
+                            ),
+                            CustomSwitch(
+                              value: _.movility,
+                              onChanged: (value) {
+                                _.setHaveMovility(value);
+                              },
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 25,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Busco trabajos...',
+                              style: subTitleText,
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'De medio tiempo',
+                                  style: secondaryText,
+                                ),
+                                CustomSwitch(
+                                  value: !_.completeTime,
+                                  onChanged: (value) {
+                                    _.setTimeDisponibility(false);
+                                  },
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'De tiempo completo',
+                                  style: secondaryText,
+                                ),
+                                CustomSwitch(
+                                  value: _.completeTime,
+                                  onChanged: (value) {
+                                    _.setTimeDisponibility(true);
+                                  },
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],

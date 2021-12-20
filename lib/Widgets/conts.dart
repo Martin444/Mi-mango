@@ -24,6 +24,7 @@ TextStyle primatyText = TextStyle(
   fontSize: 25,
   color: Colors.black,
 );
+
 TextStyle subTitleText = TextStyle(
   fontFamily: 'Sniglet',
   fontSize: 20,
